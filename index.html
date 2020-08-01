@@ -2,40 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Trails App </title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <header role="banner" class="bg">
-		<h1>Go Hiking!</h1>
-		<h4>Find a hike near you!</h4>      
-		<legend>
-		    <div id="zipInput">
-                <input id="zip-input" type="text" placeholder="Zip Code">
-                <button class="btn btn-primary" id="basic-text1"><i class="fas fa-search"
+    <section class="section">
+        <header role="banner" class="bg">
+            <div class="container is-fluid">
+		        <h1>Go Hiking!</h1>
+                <h4>Find a hike near you!</h4>
+                <p class="quote">&ldquo;Nature is not place to visit. It is home.&rdquo;</p>
+                <p>&hyphen; Gary Snyder</p>      
+		    <legend>
+		        <div id="zipInput">
+                    <input id="zip-input" type="text" placeholder="Zip Code">
+                    <button class="btn btn-primary" id="basic-text1"><i class="fas fa-search"
                     aria-hidden="true"></i></button>
+                </div>
+		    </legend>
+        </header> 
+        <main role="main">
+            <div class="weather-result" id="weather-display">
             </div>
-		</legend>
-    </header> 
-    <main role="main">
-        <div id="resultsDiv">
-            <h3>Hikes Nearby</h3>
-            <hr>
-            <div id="display-results">
-        </div>
-    </main> 
-    <footer role="contentinfo">
-        <p>Developed by pprewitt, hannahjorich, Enrique303, & EdenKhaos</p>
-    </footer>
-     
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="scripts.js"></script>
-    <script type="text/javascript" src="https://api.opencagedata.com/geocode/v1/json?q=PLACENAME&key=YOUR-API-KEY"></script>
+            <div class="container is-fluid" id="resultsDiv">
+                <h3>Hikes Nearby</h3>
+                <hr>
+                <div id="display-results">
+            </div>
+        </main> 
+        <footer role="contentinfo">
+            <div class="container is-fluid">
+            <p>Developed by pprewitt, hannahjorich, Enrique303, & EdenKhaos (C) 2020</p>
+            </div>
+        </footer>
+            
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="scripts.js"></script>
+            </div>  
+    </section>
 </body>
 </html>
