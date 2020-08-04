@@ -1,0 +1,32 @@
+.footer{
+  position: fixed;
+  width: 100%;
+  bottom: 0; 
+  padding: 25px;
+  border: 25px;
+  border-radius: 15px;
+  left: 0;
+}
+.section{
+  padding: 0;
+  padding-bottom: 50px;
+  align-content: center;
+  position: static;
+  border: 1px solid #ccc;
+  background: url(./images/stream.jpg) center /cover; 
+  color: #ffffff
+}
+.field {
+  padding-top: 25px;
+}
+h1{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.columns{
+  padding: 15px 10px 15px 10px;
+}
+
+/* .navbar-item a {
+  color: #ffffff;
+} */
