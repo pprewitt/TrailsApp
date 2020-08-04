@@ -5,39 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Trails App </title>
+    <link rel="stylesheet" href="./assets/reset.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>Document</title>
 </head>
 <body>
     <section class="section">
-        <header role="banner" class="bg">
-            <div class="container is-fluid">
-		        <h1>Go Hiking!</h1>
-                <h4>Find a hike near you!</h4>
-                <p class="quote">&ldquo;Nature is not place to visit. It is home.&rdquo;</p>
-                <p>&hyphen; Gary Snyder</p>      
-		    <legend>
-		        <div id="zipInput">
-                    <input id="zip-input" type="text" placeholder="Zip Code">
-                    <button class="btn btn-primary" id="basic-text1"><i class="fas fa-search"
-                    aria-hidden="true"></i></button>
+            <nav class="navbar-menu">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link" href="">
+                      Menu
+                    </a>
+                    <div class="navbar-dropdown is-boxed">
+                      <a class="navbar-item" href="">
+                        About
+                      </a>
+                      <a class="navbar-item" href="">
+                        Contact Us
+                      </a>
+                      <a class="navbar-item" href="">
+                        
+                      </a>
                 </div>
-		    </legend>
-        </header> 
+            </nav>
+        <div class="container">               
+            <header role="banner">
+                <div class="hero has-text-centered">
+                    <h1 class = "is-size-1">Go Hiking!</h1>
+                    <p class="quote">&ldquo;Nature is not place to visit. It is home.&rdquo;<br>
+                    &hyphen; Gary Snyder</p> 
+                </div>
+            </header>
+        </div>              
+            <div class="field has-addons has-addons-centered">
+                <p class="control" id="zipInput">
+                    <input class="input" type="text" placeholder="Zip Code">
+                </p>
+                <p class="control">
+                    <a class="button is-info">
+                    Search
+                 </a>
+                </p>
+            </div>                        
+    </section>
         <main role="main">
             <div class="weather-result" id="weather-display">
-            </div>
-            <div class="container is-fluid" id="resultsDiv">
-                <h3>Hikes Nearby</h3>
-                <hr>
-                <div id="display-results">
-            </div>
+
+            <div class="columns">
+                <div class="column" id="result-one">1</div>
+                <div class="column" id="result-two">2</div>
+                <div class="column" id="result-three">3</div>
+                <div class="column" id="result-four">4</div>
+                <div class="column" id="result-five">5</div>
+              </div>
         </main> 
-        <footer role="contentinfo">
-            <div class="container is-fluid">
-            <p>Developed by pprewitt, hannahjorich, Enrique303, & EdenKhaos (C) 2020</p>
+        <footer class="footer has-text-centered">
+            <div>
+            <p>Developed by <a href="" class="nav-item"><span class="icon"><i class="fab fa-github"></i></span>pprewitt</a>, <a href="" class="nav-item">hannahjorich</a>, <a href="" class="nav-item">Enrique303</a>, & <a href="" class="nav-item">EdenKhaos</a> &copy; 2020</p>
             </div>
         </footer>
             
@@ -45,6 +71,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script src="scripts.js"></script>
             </div>  
-    </section>
 </body>
 </html>
