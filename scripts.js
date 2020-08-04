@@ -49,8 +49,10 @@ let trail5 = response.trails[4];
    let hikeOneCond = $("<h5>").text("Cond: "+hikeOneWeather.weather[0].main)
    let hikeOneRTDistance = $("<h5>").text("Round Trip Distance: "+ trail1.length);
    let hikeOneDifficulty= $("<h6>").text("Difficulty: "+ trail1.difficulty);
+   let hikeOneDirectionsURL = ("https://www.google.com/maps/dir/?api=1&origin="+zipCode+"&destination="+trailOneLat+","+trailOneLong+"&travelmode=driving")
+  let hikeOneDirections = $("<a href="+hikeOneDirectionsURL+">Driving Directions</a>")
    // var hikeOneDrive= $("<p>").text("");
-   $(firstHikeDiv).append(imgOne, hikeOneTitle, hikeOneTemp, hikeOneCond, hikeOneRTDistance, hikeOneDifficulty);
+   $(firstHikeDiv).append(imgOne, hikeOneTitle, hikeOneTemp, hikeOneCond, hikeOneRTDistance, hikeOneDifficulty, hikeOneDirections);
    $("#display-results").append(firstHikeDiv);
   });
 
@@ -71,8 +73,10 @@ let trail5 = response.trails[4];
    let hikeTwoCond = $("<h5>").text("Cond: "+hikeTwoWeather.weather[0].main)
    let hikeTwoRTDistance = $("<h5>").text("Round Trip Distance: "+ trail2.length);
    let hikeTwoDifficulty= $("<h6>").text("Difficulty: "+ trail2.difficulty);
+   let hikeTwoDirectionsURL = ("https://www.google.com/maps/dir/?api=1&origin="+zipCode+"&destination="+trailTwoLat+","+trailTwoLong+"&travelmode=driving")
+  let hikeTwoDirections = $("<a href="+hikeTwoDirectionsURL+">Driving Directions</a>")
    // var hikeOneDrive= $("<p>").text("");
-   $(secondHikeDiv).append(imgTwo, hikeTwoTitle, hikeTwoTemp, hikeTwoCond, hikeTwoRTDistance, hikeTwoDifficulty);
+   $(secondHikeDiv).append(imgTwo, hikeTwoTitle, hikeTwoTemp, hikeTwoCond, hikeTwoRTDistance, hikeTwoDifficulty, hikeTwoDirections);
    $("#display-results").append(secondHikeDiv);
   });
   
@@ -92,8 +96,10 @@ let trail5 = response.trails[4];
    let hikeThreeCond = $("<h5>").text("Cond: "+hikeThreeWeather.weather[0].main)
    var hikeThreeRTDistance = $("<h5>").text("Round Trip Distance: "+ trail3.length);
    var hikeThreeDifficulty= $("<h6>").text("Difficulty: "+ trail3.difficulty);
+   let hikeThreeDirectionsURL = ("https://www.google.com/maps/dir/?api=1&origin="+zipCode+"&destination="+trailThreeLat+","+trailThreeLong+"&travelmode=driving")
+  let hikeThreeDirections = $("<a href="+hikeThreeDirectionsURL+">Driving Directions</a>")
    // var hikeOneDrive= $("<p>").text("");
-   $(thirdHikeDiv).append(imgThree, hikeThreeTitle, hikeThreeTemp, hikeThreeCond, hikeThreeRTDistance, hikeThreeDifficulty);
+   $(thirdHikeDiv).append(imgThree, hikeThreeTitle, hikeThreeTemp, hikeThreeCond, hikeThreeRTDistance, hikeThreeDifficulty, hikeThreeDirections);
    $("#display-results").append(thirdHikeDiv);
   });
    var fourthHikeDiv= $("<div class='column' id= 'result-four'>");
@@ -112,8 +118,10 @@ let trail5 = response.trails[4];
    let hikeFourCond = $("<h5>").text("Cond: "+hikeFourWeather.weather[0].main)
    var hikeFourRTDistance = $("<h5>").text("Round Trip Distance: "+ trail4.length);
    var hikeFourDifficulty= $("<h6>").text("Difficulty: "+ trail4.difficulty);
+   let hikeFourDirectionsURL = ("https://www.google.com/maps/dir/?api=1&origin="+zipCode+"&destination="+trailFourLat+","+trailFourLong+"&travelmode=driving")
+  let hikeFourDirections = $("<a href="+hikeFourDirectionsURL+">Driving Directions</a>")
    // var hikeOneDrive= $("<p>").text("");
-   $(fourthHikeDiv).append(imgFour, hikeFourTitle, hikeFourTemp, hikeFourCond, hikeFourRTDistance, hikeFourDifficulty);
+   $(fourthHikeDiv).append(imgFour, hikeFourTitle, hikeFourTemp, hikeFourCond, hikeFourRTDistance, hikeFourDifficulty, hikeFourDirections);
    $("#display-results").append(fourthHikeDiv);
   });
 
@@ -131,10 +139,12 @@ let trail5 = response.trails[4];
    var hikeFiveTitle = $("<h5>").text(trail5.name);
    let hikeFiveTemp = $("<h5>").text("Temp: "+hikeFiveWeather.temp.day)
    let hikeFiveCond = $("<h5>").text("Cond: "+hikeFiveWeather.weather[0].main)
-   var hikeFiveRTDistance = $("<h5>").text("Round Trip Distance: "+ trail5.length);
-   var hikeFiveDifficulty= $("<h6>").text("Difficulty: "+ trail5.difficulty);
-   // var hikeOneDrive= $("<p>").text("");
-   $(fifthHikeDiv).append(imgFive, hikeFiveTitle, hikeFiveTemp, hikeFiveCond, hikeFiveRTDistance, hikeFiveDifficulty);
+   let hikeFiveRTDistance = $("<h5>").text("Round Trip Distance: "+ trail5.length);
+   let hikeFiveDifficulty= $("<h6>").text("Difficulty: "+ trail5.difficulty);
+  let hikeFiveDirectionsURL = ("https://www.google.com/maps/dir/?api=1&origin="+zipCode+"&destination="+trailFiveLat+","+trailFiveLong+"&travelmode=driving")
+  let hikeFiveDirections = $("<a href="+hikeFiveDirectionsURL+">Driving Directions</a>")
+  // var hikeOneDrive= $("<p>").text("");
+   $(fifthHikeDiv).append(imgFive, hikeFiveTitle, hikeFiveTemp, hikeFiveCond, hikeFiveRTDistance, hikeFiveDifficulty, hikeFiveDirections);
    $("#display-results").append(fifthHikeDiv);
   });
 });
