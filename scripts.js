@@ -16,7 +16,7 @@ $("#basic-text1").on("click", function(event) {
 let lat = (response.results[0].locations[0].displayLatLng.lat);
 let lon = (response.results[0].locations[0].displayLatLng.lng);
 
-  var queryURL2 = "https://www.hikingproject.com/data/get-trails?lat="+lat+"&lon="+lon+"&maxDistance=200&key=200858356-bf647b28b50f236daa1cc71548dae05e";
+  var queryURL2 = "https://www.hikingproject.com/data/get-trails?lat="+lat+"&lon="+lon+"&maxDistance=50&key=200858356-bf647b28b50f236daa1cc71548dae05e";
   $.ajax({
     url: queryURL2,
     method: "GET"
@@ -31,8 +31,10 @@ let trail4 = response.trails[3];
 let trail5 = response.trails[4];
 
   $("#display-results").empty();
-   let firstHikeDiv= $("<div class= 'column' id= 'result-one'>");
-   let imgOne = $("<img src=" +trail1.imgSmall+">")
+   let firstHikeDiv= $("<div class= 'column card tile mx-4 is-child' id= 'result-one'>");
+   let imageOneDiv=$("<div class= 'image-overflow'>")
+   let imgOne = $("<img class= 'card-image is-4by2' src=" +trail1.imgMedium+">")
+   imageOneDiv.append(imgOne)
    let trailOneLong = trail1.longitude;
    let trailOneLat = trail1.latitude;
    let hikeOneQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat="+trailOneLat+"&lon="+trailOneLong+"&units=imperial&appid=e9b735c3398cfe4564ec31ab0eed5a07";
@@ -44,7 +46,7 @@ let trail5 = response.trails[4];
    let hikeOneWeather= response.daily[0];
   
    
-   let hikeOneTitle = $("<h5>").text(trail1.name);
+   let hikeOneTitle = $("<h5 class= 'has-text-weight-semibold'>").text(trail1.name);
    let hikeOneTemp = $("<h5>").text("Temp: "+hikeOneWeather.temp.day)
    let hikeOneCond = $("<h5>").text("Cond: "+hikeOneWeather.weather[0].main)
    let hikeOneRTDistance = $("<h5>").text("Round Trip Distance: "+ trail1.length);
@@ -52,13 +54,15 @@ let trail5 = response.trails[4];
    let hikeOneDirectionsURL = ("https://www.google.com/maps/dir/?api=1&origin="+zipCode+"&destination="+trailOneLat+","+trailOneLong+"&travelmode=driving")
   let hikeOneDirections = $("<a href="+hikeOneDirectionsURL+">Driving Directions</a>")
    // var hikeOneDrive= $("<p>").text("");
-   $(firstHikeDiv).append(imgOne, hikeOneTitle, hikeOneTemp, hikeOneCond, hikeOneRTDistance, hikeOneDifficulty, hikeOneDirections);
+   $(firstHikeDiv).append(imageOneDiv, hikeOneTitle, hikeOneTemp, hikeOneCond, hikeOneRTDistance, hikeOneDifficulty, hikeOneDirections);
    $("#display-results").append(firstHikeDiv);
   });
 
 
-   var secondHikeDiv= $("<div class='column' id= 'result-two'>");
-   var imgTwo = $("<img src=" +trail2.imgSmall+">");
+   var secondHikeDiv= $("<div class='column card tile mx-4 is-child' id= 'result-two'>");
+   let imageTwoDiv=$("<div class= 'image-overflow'>")
+   var imgTwo = $("<img class= 'card-image is-4by2' src=" +trail2.imgMedium+">");
+   imageTwoDiv.append(imgTwo)
    let trailTwoLong = trail2.longitude;
    let trailTwoLat = trail2.latitude;
    
@@ -68,7 +72,7 @@ let trail5 = response.trails[4];
     method: "GET"
   }).then(function(response) {
     let hikeTwoWeather= response.daily[0];
-    let hikeTwoTitle = $("<h5>").text(trail2.name);
+    let hikeTwoTitle = $("<h5 class= 'has-text-weight-semibold'>").text(trail2.name);
    let hikeTwoTemp = $("<h5>").text("Temp: "+hikeTwoWeather.temp.day)
    let hikeTwoCond = $("<h5>").text("Cond: "+hikeTwoWeather.weather[0].main)
    let hikeTwoRTDistance = $("<h5>").text("Round Trip Distance: "+ trail2.length);
@@ -76,12 +80,14 @@ let trail5 = response.trails[4];
    let hikeTwoDirectionsURL = ("https://www.google.com/maps/dir/?api=1&origin="+zipCode+"&destination="+trailTwoLat+","+trailTwoLong+"&travelmode=driving")
   let hikeTwoDirections = $("<a href="+hikeTwoDirectionsURL+">Driving Directions</a>")
    // var hikeOneDrive= $("<p>").text("");
-   $(secondHikeDiv).append(imgTwo, hikeTwoTitle, hikeTwoTemp, hikeTwoCond, hikeTwoRTDistance, hikeTwoDifficulty, hikeTwoDirections);
+   $(secondHikeDiv).append(imageTwoDiv, hikeTwoTitle, hikeTwoTemp, hikeTwoCond, hikeTwoRTDistance, hikeTwoDifficulty, hikeTwoDirections);
    $("#display-results").append(secondHikeDiv);
   });
   
-   var thirdHikeDiv= $("<div class=<div class='column' id= 'result-three'>");
-   var imgThree = $("<img src=" +trail3.imgSmall+">")
+   var thirdHikeDiv= $("<div class='column card tile mx-4 is-child' id= 'result-three'>");
+   let imageThreeDiv=$("<div class= 'image-overflow'>")
+   var imgThree = $("<img class= 'card-image is-4by2' src=" +trail3.imgMedium+">")
+   imageThreeDiv.append(imgThree)
    let trailThreeLong = trail3.longitude;
    let trailThreeLat = trail3.latitude;
    
@@ -91,7 +97,7 @@ let trail5 = response.trails[4];
     method: "GET"
   }).then(function(response) {
     let hikeThreeWeather= response.daily[0];
-   var hikeThreeTitle = $("<h5>").text(trail3.name);
+   var hikeThreeTitle = $("<h5 class= 'has-text-weight-semibold'>").text(trail3.name);
    let hikeThreeTemp = $("<h5>").text("Temp: "+hikeThreeWeather.temp.day)
    let hikeThreeCond = $("<h5>").text("Cond: "+hikeThreeWeather.weather[0].main)
    var hikeThreeRTDistance = $("<h5>").text("Round Trip Distance: "+ trail3.length);
@@ -99,11 +105,13 @@ let trail5 = response.trails[4];
    let hikeThreeDirectionsURL = ("https://www.google.com/maps/dir/?api=1&origin="+zipCode+"&destination="+trailThreeLat+","+trailThreeLong+"&travelmode=driving")
   let hikeThreeDirections = $("<a href="+hikeThreeDirectionsURL+">Driving Directions</a>")
    // var hikeOneDrive= $("<p>").text("");
-   $(thirdHikeDiv).append(imgThree, hikeThreeTitle, hikeThreeTemp, hikeThreeCond, hikeThreeRTDistance, hikeThreeDifficulty, hikeThreeDirections);
+   $(thirdHikeDiv).append(imageThreeDiv, hikeThreeTitle, hikeThreeTemp, hikeThreeCond, hikeThreeRTDistance, hikeThreeDifficulty, hikeThreeDirections);
    $("#display-results").append(thirdHikeDiv);
   });
-   var fourthHikeDiv= $("<div class='column' id= 'result-four'>");
-   var imgFour = $("<img src=" +trail4.imgSmall+">")
+   var fourthHikeDiv= $("<div class='column card tile mx-4 is-child' id= 'result-four'>");
+   let imageFourDiv=$("<div class= 'image-overflow'>")
+   var imgFour = $("<img class= 'card-image is-4by2' src=" +trail4.imgMedium+">")
+   imageFourDiv.append(imgFour)
    let trailFourLong = trail4.longitude;
    let trailFourLat = trail4.latitude;
    
@@ -113,7 +121,7 @@ let trail5 = response.trails[4];
     method: "GET"
   }).then(function(response) {
     let hikeFourWeather= response.daily[0];
-   var hikeFourTitle = $("<h5>").text(trail4.name);
+   var hikeFourTitle = $("<h5 class= 'has-text-weight-semibold'>").text(trail4.name);
    let hikeFourTemp = $("<h5>").text("Temp: "+hikeFourWeather.temp.day)
    let hikeFourCond = $("<h5>").text("Cond: "+hikeFourWeather.weather[0].main)
    var hikeFourRTDistance = $("<h5>").text("Round Trip Distance: "+ trail4.length);
@@ -121,12 +129,14 @@ let trail5 = response.trails[4];
    let hikeFourDirectionsURL = ("https://www.google.com/maps/dir/?api=1&origin="+zipCode+"&destination="+trailFourLat+","+trailFourLong+"&travelmode=driving")
   let hikeFourDirections = $("<a href="+hikeFourDirectionsURL+">Driving Directions</a>")
    // var hikeOneDrive= $("<p>").text("");
-   $(fourthHikeDiv).append(imgFour, hikeFourTitle, hikeFourTemp, hikeFourCond, hikeFourRTDistance, hikeFourDifficulty, hikeFourDirections);
+   $(fourthHikeDiv).append(imageFourDiv, hikeFourTitle, hikeFourTemp, hikeFourCond, hikeFourRTDistance, hikeFourDifficulty, hikeFourDirections);
    $("#display-results").append(fourthHikeDiv);
   });
 
-   var fifthHikeDiv= $("<div class='column' id= 'result-five'>");
-   var imgFive = $("<img src=" +trail5.imgSmall+">")
+   var fifthHikeDiv= $("<div class='column card tile mx-4 is-child' id= 'result-five'>");
+   let imageFiveDiv=$("<div class= 'image-overflow'>")
+   var imgFive = $("<img class= 'card-image is-4by2' src=" +trail5.imgMedium+">")
+   imageFiveDiv.append(imgFive)
    let trailFiveLong = trail5.longitude;
    let trailFiveLat = trail5.latitude;
    
@@ -136,7 +146,7 @@ let trail5 = response.trails[4];
     method: "GET"
   }).then(function(response) {
     let hikeFiveWeather= response.daily[0];
-   var hikeFiveTitle = $("<h5>").text(trail5.name);
+   var hikeFiveTitle = $("<h5 class= 'has-text-weight-semibold'>").text(trail5.name);
    let hikeFiveTemp = $("<h5>").text("Temp: "+hikeFiveWeather.temp.day)
    let hikeFiveCond = $("<h5>").text("Cond: "+hikeFiveWeather.weather[0].main)
    let hikeFiveRTDistance = $("<h5>").text("Round Trip Distance: "+ trail5.length);
@@ -144,7 +154,7 @@ let trail5 = response.trails[4];
   let hikeFiveDirectionsURL = ("https://www.google.com/maps/dir/?api=1&origin="+zipCode+"&destination="+trailFiveLat+","+trailFiveLong+"&travelmode=driving")
   let hikeFiveDirections = $("<a href="+hikeFiveDirectionsURL+">Driving Directions</a>")
   // var hikeOneDrive= $("<p>").text("");
-   $(fifthHikeDiv).append(imgFive, hikeFiveTitle, hikeFiveTemp, hikeFiveCond, hikeFiveRTDistance, hikeFiveDifficulty, hikeFiveDirections);
+   $(fifthHikeDiv).append(imageFiveDiv, hikeFiveTitle, hikeFiveTemp, hikeFiveCond, hikeFiveRTDistance, hikeFiveDifficulty, hikeFiveDirections);
    $("#display-results").append(fifthHikeDiv);
   });
 });
