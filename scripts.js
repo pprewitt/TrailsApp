@@ -31,7 +31,7 @@ let trail4 = response.trails[3];
 let trail5 = response.trails[4];
 
   $("#display-results").empty();
-   let firstHikeDiv= $("<div class=>");
+   let firstHikeDiv= $("<div class= 'column' id= 'result-one'>");
    let imgOne = $("<img src=" +trail1.imgSmall+">")
    let trailOneLong = trail1.longitude;
    let trailOneLat = trail1.latitude;
@@ -55,7 +55,7 @@ let trail5 = response.trails[4];
   });
 
 
-   var secondHikeDiv= $("<div class=>");
+   var secondHikeDiv= $("<div class='column' id= 'result-two'>");
    var imgTwo = $("<img src=" +trail2.imgSmall+">");
    let trailTwoLong = trail2.longitude;
    let trailTwoLat = trail2.latitude;
@@ -65,42 +65,78 @@ let trail5 = response.trails[4];
     url: hikeTwoQueryURL,
     method: "GET"
   }).then(function(response) {
-    console.log(response)
-  
-   var hikeTwoTitle = $("<h5>").text(trail2.name);
-   var hikeTwoRTDistance = $("<h5>").text("Round Trip Distance: "+ trail2.length);
-   var hikeTwoDifficulty= $("<h6>").text("Difficulty: "+ trail2.difficulty);
+    let hikeTwoWeather= response.daily[0];
+    let hikeTwoTitle = $("<h5>").text(trail2.name);
+   let hikeTwoTemp = $("<h5>").text("Temp: "+hikeTwoWeather.temp.day)
+   let hikeTwoCond = $("<h5>").text("Cond: "+hikeTwoWeather.weather[0].main)
+   let hikeTwoRTDistance = $("<h5>").text("Round Trip Distance: "+ trail2.length);
+   let hikeTwoDifficulty= $("<h6>").text("Difficulty: "+ trail2.difficulty);
    // var hikeOneDrive= $("<p>").text("");
-   $(secondHikeDiv).append(imgTwo, hikeTwoTitle, hikeTwoRTDistance, hikeTwoDifficulty);
+   $(secondHikeDiv).append(imgTwo, hikeTwoTitle, hikeTwoTemp, hikeTwoCond, hikeTwoRTDistance, hikeTwoDifficulty);
    $("#display-results").append(secondHikeDiv);
   });
-   var thirdHikeDiv= $("<div class=>");
+  
+   var thirdHikeDiv= $("<div class=<div class='column' id= 'result-three'>");
    var imgThree = $("<img src=" +trail3.imgSmall+">")
+   let trailThreeLong = trail3.longitude;
+   let trailThreeLat = trail3.latitude;
+   
+   var hikeThreeQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat="+trailThreeLat+"&lon="+trailThreeLong+"&units=imperial&appid=e9b735c3398cfe4564ec31ab0eed5a07";
+    $.ajax({
+    url: hikeThreeQueryURL,
+    method: "GET"
+  }).then(function(response) {
+    let hikeThreeWeather= response.daily[0];
    var hikeThreeTitle = $("<h5>").text(trail3.name);
+   let hikeThreeTemp = $("<h5>").text("Temp: "+hikeThreeWeather.temp.day)
+   let hikeThreeCond = $("<h5>").text("Cond: "+hikeThreeWeather.weather[0].main)
    var hikeThreeRTDistance = $("<h5>").text("Round Trip Distance: "+ trail3.length);
    var hikeThreeDifficulty= $("<h6>").text("Difficulty: "+ trail3.difficulty);
    // var hikeOneDrive= $("<p>").text("");
-   $(thirdHikeDiv).append(imgThree, hikeThreeTitle, hikeThreeRTDistance, hikeThreeDifficulty);
+   $(thirdHikeDiv).append(imgThree, hikeThreeTitle, hikeThreeTemp, hikeThreeCond, hikeThreeRTDistance, hikeThreeDifficulty);
    $("#display-results").append(thirdHikeDiv);
-
-   var fourthHikeDiv= $("<div class=>");
+  });
+   var fourthHikeDiv= $("<div class='column' id= 'result-four'>");
    var imgFour = $("<img src=" +trail4.imgSmall+">")
+   let trailFourLong = trail4.longitude;
+   let trailFourLat = trail4.latitude;
+   
+   var hikeFourQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat="+trailFourLat+"&lon="+trailFourLong+"&units=imperial&appid=e9b735c3398cfe4564ec31ab0eed5a07";
+    $.ajax({
+    url: hikeFourQueryURL,
+    method: "GET"
+  }).then(function(response) {
+    let hikeFourWeather= response.daily[0];
    var hikeFourTitle = $("<h5>").text(trail4.name);
+   let hikeFourTemp = $("<h5>").text("Temp: "+hikeFourWeather.temp.day)
+   let hikeFourCond = $("<h5>").text("Cond: "+hikeFourWeather.weather[0].main)
    var hikeFourRTDistance = $("<h5>").text("Round Trip Distance: "+ trail4.length);
    var hikeFourDifficulty= $("<h6>").text("Difficulty: "+ trail4.difficulty);
    // var hikeOneDrive= $("<p>").text("");
-   $(fourthHikeDiv).append(imgFour, hikeFourTitle, hikeFourRTDistance, hikeFourDifficulty);
+   $(fourthHikeDiv).append(imgFour, hikeFourTitle, hikeFourTemp, hikeFourCond, hikeFourRTDistance, hikeFourDifficulty);
    $("#display-results").append(fourthHikeDiv);
+  });
 
-   var fifthHikeDiv= $("<div class=>");
+   var fifthHikeDiv= $("<div class='column' id= 'result-five'>");
    var imgFive = $("<img src=" +trail5.imgSmall+">")
+   let trailFiveLong = trail5.longitude;
+   let trailFiveLat = trail5.latitude;
+   
+   var hikeFiveQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat="+trailFiveLat+"&lon="+trailFiveLong+"&units=imperial&appid=e9b735c3398cfe4564ec31ab0eed5a07";
+    $.ajax({
+    url: hikeFiveQueryURL,
+    method: "GET"
+  }).then(function(response) {
+    let hikeFiveWeather= response.daily[0];
    var hikeFiveTitle = $("<h5>").text(trail5.name);
+   let hikeFiveTemp = $("<h5>").text("Temp: "+hikeFiveWeather.temp.day)
+   let hikeFiveCond = $("<h5>").text("Cond: "+hikeFiveWeather.weather[0].main)
    var hikeFiveRTDistance = $("<h5>").text("Round Trip Distance: "+ trail5.length);
    var hikeFiveDifficulty= $("<h6>").text("Difficulty: "+ trail5.difficulty);
    // var hikeOneDrive= $("<p>").text("");
-   $(fifthHikeDiv).append(imgFive, hikeFiveTitle, hikeFiveRTDistance, hikeFiveDifficulty);
+   $(fifthHikeDiv).append(imgFive, hikeFiveTitle, hikeFiveTemp, hikeFiveCond, hikeFiveRTDistance, hikeFiveDifficulty);
    $("#display-results").append(fifthHikeDiv);
-
+  });
 });
 });
 })
