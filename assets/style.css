@@ -27,6 +27,10 @@ h1{
   padding: 15px 10px 15px 10px;
 }
 
+.image-overflow{
+  max-height: 100px;
+  overflow: hidden;
+}
 /* .navbar-item a {
   color: #ffffff;
 } */
