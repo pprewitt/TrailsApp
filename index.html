@@ -41,25 +41,34 @@
         </div>              
             <div class="field has-addons has-addons-centered">
                 <p class="control" id="zipInput">
-                    <input class="input" type="text" placeholder="Zip Code">
+                    <input class="input" type="text" id= "zip-input" placeholder="Zip Code">
                 </p>
                 <p class="control">
-                    <a class="button is-info">
+                    <a class="button is-info" id=basic-text1>
                     Search
                  </a>
                 </p>
-            </div>                        
+                
+            </div>  
+            <div class="select field has-addons has-addons-centered is-multiple" >
+                <select id= "drive-time">
+                  <option>Driving Miles</option>
+                  <option value=25>25</option>
+                  <option value=50>50</option>
+                  <option value=75>75</option>
+                  <option value=100>100</option>
+                  <option value=125>125</option>
+                  <option value=150>150</option>
+                  <option value=175>175</option>
+                  <option value=200>200</option>
+                  
+                </select>
+              </div>                      
     </section>
         <main role="main">
-            <div class="weather-result" id="weather-display">
+            <div class="weather-result columns tile is-ancestor section" id="display-results">
 
-            <div class="columns">
-                <div class="column" id="result-one">1</div>
-                <div class="column" id="result-two">2</div>
-                <div class="column" id="result-three">3</div>
-                <div class="column" id="result-four">4</div>
-                <div class="column" id="result-five">5</div>
-              </div>
+            
         </main> 
         <footer class="footer has-text-centered">
             <div>
