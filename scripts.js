@@ -3,7 +3,8 @@
 
 // let timeOut= endTimeInput-startingTimeInput;
 // document.addEventListener('DOMContentLoaded', function(){
-  
+let restLat = "";
+let restLon = "";
   
 $("#basic-text1").on("click", function(event) {
   
@@ -147,6 +148,8 @@ let trail5 = response.trails[4];
    imageFiveDiv.append(imgFive)
    let trailFiveLong = trail5.longitude;
    let trailFiveLat = trail5.latitude;
+   restLat = trail5.latitude
+   restLon = trail5.longitude
    
    var hikeFiveQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat="+trailFiveLat+"&lon="+trailFiveLong+"&units=imperial&appid=e9b735c3398cfe4564ec31ab0eed5a07";
     $.ajax({
@@ -161,14 +164,34 @@ let trail5 = response.trails[4];
    let hikeFiveDifficulty= $("<h6>").text("Difficulty: "+ trail5.difficulty);
   let hikeFiveDirectionsURL = ("https://www.google.com/maps/dir/?api=1&origin="+zipCode+"&destination="+trailFiveLat+","+trailFiveLong+"&travelmode=driving");
   let hikeFiveDirections = $("<a target='_blank' href="+hikeFiveDirectionsURL+">Driving Directions</a>");
-  let hikeFiveRestaurant = $("<h6>").text("Local Restaurants");
+  let hikeFiveRestaurant = $("<a href='#' class='local-rest'>Local Restaurants</a>");
   // var hikeOneDrive= $("<p>").text("");
    $(fifthHikeDiv).append(imageFiveDiv, hikeFiveTitle, hikeFiveTemp, hikeFiveCond, hikeFiveRTDistance, hikeFiveDifficulty, hikeFiveDirections, hikeFiveRestaurant);
    $("#display-results").append(fifthHikeDiv);
   });
 });
-});
+
+  //  $.ajax ({
+  //   url:`https://developers.zomato.com/api/v2.1/establishments?lat=${restLat}lon=${restLon}`,
+  //   method: "GET",
+  //   headers:{
+  //     "user-key":"9985c76101ef1e92d780985a8cd4065f",
+  //   }
+    
+  // }).done(function(response){
+  // console.log(response);
+  
+  // })
 })
+
+});
+
+$(document).on("click", "a .local-rest", function(){
+  console.log("thanks Jon");
+});
+
+//
+
 
 
 // pass lat and lon through the card that is clicked into search api 
