@@ -14,7 +14,7 @@
   position: static;
   border: 1px solid #ccc;
   background: url(./images/stream.jpg) center /cover; 
-  color: #ffffff
+  color: #ffffff;
 }
 .field {
   padding-top: 25px;
@@ -31,6 +31,17 @@ h1{
   max-height: 100px;
   overflow: hidden;
 }
-/* .navbar-item a {
+.navbar-item a {
   color: #ffffff;
-} */
+}
+
+.hero h1{
+  font-family: Arial black, Helvetica, sans-serif;
+  opacity: 1.6;
+  color: #e5e5e5;
+}
+.hero p{
+  font-weight: bold;
+  opacity: 1.6;
+  color: #e5e5e5;
+}
