@@ -1,5 +1,5 @@
 # TrailsApp
-A simplified application that displays local hiking trails depending on searched zip code. Once a zip code is searched, five near by trails will be listed. For current area searched trail name, a picture of the trail, length of trail round trip, approximate time to get to trail, difficulty of trail, possible restaurants nearby, driving directions, and general weather info per trail. 
+A simplified application that displays local hiking trails depending on searched zip code. Once a zip code is searched, seven near by trails will be listed. For current area searched trail name, a picture of the trail, length of trail round trip, approximate time to get to trail, difficulty of trail, possible restaurants nearby, driving directions, and general weather info per trail. 
 
 ## Links:
 ```
@@ -27,7 +27,7 @@ I WANT an app that can show me hiking trails that I can access.
 SO THAT his app would tell me about the difficulty of the trail, how far it is from me, how much of a time commitment it is, and possible near by restaurants. 
 
 ## Demo
-![home](.JPG or .gif)
+![home](https://github.com/pprewitt/TrailsApp/blob/master/assets/images/gohiking.gif)
 
 ## Resources
 HTML
