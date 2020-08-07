@@ -1,8 +1,11 @@
+body{
+
+}
 .footer{
   position: fixed;
   width: 100%;
   bottom: 0; 
-  padding: 25px;
+  padding: 7px;
   border: 25px;
   border-radius: 15px;
   left: 0;
