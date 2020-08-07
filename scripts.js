@@ -71,7 +71,7 @@ $(document).ready(function () {
             let hikeWeather = weatherResponse.daily[0];
             //card content
             let hikeTitle = $("<a target='_blank'class= 'is-size-5 pt-3 has-text-weight-semibold' href="+trail.url+">"+trail.name+"</a></br>");
-            let hikeTemp = $("<p class='is-size-6  pt-3'>").text("Temp: " + hikeWeather.temp.day+ "°F")
+            let hikeTemp = $("<p class='is-size-6  pt-3'>").text("Temp: " + Math.floor(hikeWeather.temp.day)+ "°F")
             let hikeCond = $("<p class='is-size-6 pt-3'>").text("Conditions: " + hikeWeather.weather[0].main)
             let hikeRTDistance = $("<p class='is-size-6 pt-3'>").text("Trail Distance: " + trail.length + "mi.");
             let hikeCity = $("<p class='is-size-6 pt-3'>").text("Area: " + trail.location);
