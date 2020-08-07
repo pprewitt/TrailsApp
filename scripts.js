@@ -42,7 +42,7 @@ $(document).ready(function () {
       console.log(response)
       let lat = (response.results[0].locations[0].displayLatLng.lat);
       let lon = (response.results[0].locations[0].displayLatLng.lng);
-      var hikingQuery = "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + lon + "&maxDistance=" + milesDriving + "&key=200858356-bf647b28b50f236daa1cc71548dae05e";
+      var hikingQuery = "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + lon + "&maxDistance=" + milesDriving + "&sort=distance&key=200858356-bf647b28b50f236daa1cc71548dae05e";
      
      //second call passes lat/long into trails query
       $.ajax({
