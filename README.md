@@ -3,15 +3,11 @@ A simplified application that displays local hiking trails depending on searched
 
 ## Links:
 
-Live Site: 
+* Live Site: 
      https://pprewitt.github.io/TrailsApp/
    
-Code Repo: 
+* Code Repo: 
      https://github.com/pprewitt/TrailsApp
-  
-Issues & Explanation:
-     https://github.com/pprewitt/TrailsApp/blob/master/index.html
-
 
 ## Features
 * Enter a zip code
