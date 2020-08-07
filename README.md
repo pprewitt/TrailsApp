@@ -27,7 +27,7 @@ I WANT an app that can show me hiking trails that I can access.
 SO THAT his app would tell me about the difficulty of the trail, how far it is from me, how much of a time commitment it is, and possible near by restaurants. 
 
 ## Demo
-![home](.JPG or .gif)
+![home](https://github.com/pprewitt/TrailsApp/blob/master/assets/images/gohiking.gif)
 
 ## Resources
 HTML
