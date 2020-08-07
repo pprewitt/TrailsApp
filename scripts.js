@@ -9,11 +9,13 @@ $(document).ready(function () {
     console.log(restArray)
    //adds content to modal
     restArray.forEach((restaurants, index) => {
-      
+     let restaurantDiv = $(`<div class='has-text-centered box mx-1 px-1' id='rest-${index}'>`) 
      let restaurantLink= $(`<a id='a-${index}' class='mb-1' target='_blank' href= ${JSON.stringify(restaurants.restaurant.url)}>${JSON.stringify(restaurants.restaurant.name)}</a></br>`)
+     let restaurantLoc = $(`<p>${JSON.stringify(restaurants.restaurant.location.address)}</p>`)
      let cuisineP = $(`<p class='mb-1'>Cuisine(s): ${JSON.stringify(restaurants.restaurant.cuisines)}</p>`)
      let costForTwo = $(`<p class='mb-4'>Cost for 2: $${JSON.stringify(restaurants.restaurant.average_cost_for_two)}</p>`) 
-     $('.modal-content').append(restaurantLink, cuisineP, costForTwo)
+     $(restaurantDiv).append(restaurantLink, restaurantLoc, cuisineP, costForTwo)
+     $('.modal-content').append(restaurantDiv)
     });
     $('.modal').addClass('is-active');
   });
@@ -86,6 +88,7 @@ $(document).ready(function () {
               method: "GET",
               headers: {
                 "user-key": "9985c76101ef1e92d780985a8cd4065f",
+               
               }
             }).done(function (response) {
               console.log(response);
