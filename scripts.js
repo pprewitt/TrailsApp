@@ -50,6 +50,7 @@ $(document).ready(function () {
         method: "GET"
       }).then(function (response) {
         console.log(response)
+        //loop to create trail cards
         for (let i = 0; i < 7; i++) {
           trails.push(response.trails[i]);
         }
@@ -62,11 +63,13 @@ $(document).ready(function () {
           let trailLong = trail.longitude;
           let trailLat = trail.latitude;
           let weatherQuery = "https://api.openweathermap.org/data/2.5/onecall?lat=" + trailLat + "&lon=" + trailLong + "&units=imperial&appid=e9b735c3398cfe4564ec31ab0eed5a07";
+          //call for local weather data
           $.ajax({
             url: weatherQuery,
             method: "GET"
           }).done(function (weatherResponse) {
             let hikeWeather = weatherResponse.daily[0];
+            //card content
             let hikeTitle = $("<a target='_blank'class= 'is-size-5 pt-3 has-text-weight-semibold' href="+trail.url+">"+trail.name+"</a></br>");
             let hikeTemp = $("<p class='is-size-6  pt-3'>").text("Temp: " + hikeWeather.temp.day+ "°F")
             let hikeCond = $("<p class='is-size-6 pt-3'>").text("Conditions: " + hikeWeather.weather[0].main)
@@ -77,6 +80,7 @@ $(document).ready(function () {
             let hikeRestaurant = $(`<a class='local-rest is-size-6 pt-3' data-rest='${index}'>Local Restaurants</a>`);
             $(hikeDiv).append(imgDiv, hikeTitle, hikeTemp, hikeCond, hikeRTDistance, hikeCity, hikeDirections, hikeRestaurant);
             $("#display-results").append(hikeDiv);
+            //call for restaurant data
             $.ajax({
               url: `https://developers.zomato.com/api/v2.1/search?lat=${trailLat}&lon=${trailLong}&radius=20000&sort=real_distance`,
               method: "GET",
@@ -85,6 +89,7 @@ $(document).ready(function () {
               }
             }).done(function (response) {
               console.log(response);
+              //array for restarant data, linked to card index
               restaurantArray[index] = response;
             });
           });
