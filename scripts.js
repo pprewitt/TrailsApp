@@ -10,9 +10,10 @@ $(document).ready(function () {
    //adds content to modal
     restArray.forEach((restaurants, index) => {
       
-     let restaurantLink= $(`<a id='a-${index}' class='pt-3' target='_blank' href= ${JSON.stringify(restaurants.restaurant.url)}>${JSON.stringify(restaurants.restaurant.name)}</a></br>`)
-     let cuisineP = $(`<p class='pt-2'>Cuisine(s): ${JSON.stringify(restaurants.restaurant.cuisines)}</p>`) 
-     $('.modal-content').append(restaurantLink, cuisineP)
+     let restaurantLink= $(`<a id='a-${index}' class='mb-1' target='_blank' href= ${JSON.stringify(restaurants.restaurant.url)}>${JSON.stringify(restaurants.restaurant.name)}</a></br>`)
+     let cuisineP = $(`<p class='mb-1'>Cuisine(s): ${JSON.stringify(restaurants.restaurant.cuisines)}</p>`)
+     let costForTwo = $(`<p class='mb-4'>Cost for 2: $${JSON.stringify(restaurants.restaurant.average_cost_for_two)}</p>`) 
+     $('.modal-content').append(restaurantLink, cuisineP, costForTwo)
     });
     $('.modal').addClass('is-active');
   });
@@ -32,7 +33,7 @@ $(document).ready(function () {
     restaurantArray = [];
     let zipCode = $("#zip-input").val();
     let milesDriving = $("#drive-time option:selected").val()
-    var mapquestQuery = "http://www.mapquestapi.com/geocoding/v1/address?key=3VwYjbEDllKLmOW06cKZ7AR0eDB8yG5W&location=" + zipCode
+    var mapquestQuery = "https://www.mapquestapi.com/geocoding/v1/address?key=3VwYjbEDllKLmOW06cKZ7AR0eDB8yG5W&location=" + zipCode
    //first call for lat/long of zip
     $.ajax({
       url: mapquestQuery,
@@ -49,7 +50,7 @@ $(document).ready(function () {
         method: "GET"
       }).then(function (response) {
         console.log(response)
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 7; i++) {
           trails.push(response.trails[i]);
         }
         trails.forEach((trail, index) => {
@@ -70,14 +71,14 @@ $(document).ready(function () {
             let hikeTemp = $("<p class='is-size-6  pt-3'>").text("Temp: " + hikeWeather.temp.day+ "°F")
             let hikeCond = $("<p class='is-size-6 pt-3'>").text("Conditions: " + hikeWeather.weather[0].main)
             let hikeRTDistance = $("<p class='is-size-6 pt-3'>").text("Trail Distance: " + trail.length + "mi.");
-            let hikeDifficulty = $("<p class='is-size-6 pt-3'>").text("Difficulty: " + trail.difficulty);
+            let hikeCity = $("<p class='is-size-6 pt-3'>").text("Area: " + trail.location);
             let hikeDirectionsURL = ("https://www.google.com/maps/dir/?api=1&origin=" + zipCode + "&destination=" + trailLat + "," + trailLong + "&travelmode=driving")
             let hikeDirections = $("<a target='_blank' class='is-size-6 pt-3' href=" + hikeDirectionsURL + ">Driving Directions</a></br>")
             let hikeRestaurant = $(`<a class='local-rest is-size-6 pt-3' data-rest='${index}'>Local Restaurants</a>`);
-            $(hikeDiv).append(imgDiv, hikeTitle, hikeTemp, hikeCond, hikeRTDistance, hikeDifficulty, hikeDirections, hikeRestaurant);
+            $(hikeDiv).append(imgDiv, hikeTitle, hikeTemp, hikeCond, hikeRTDistance, hikeCity, hikeDirections, hikeRestaurant);
             $("#display-results").append(hikeDiv);
             $.ajax({
-              url: `https://developers.zomato.com/api/v2.1/search?lat=${trailLat}&lon=${trailLong}&radius=10000`,
+              url: `https://developers.zomato.com/api/v2.1/search?lat=${trailLat}&lon=${trailLong}&radius=20000&sort=real_distance`,
               method: "GET",
               headers: {
                 "user-key": "9985c76101ef1e92d780985a8cd4065f",
