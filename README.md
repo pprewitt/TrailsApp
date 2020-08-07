@@ -1,5 +1,5 @@
 # TrailsApp
-A simplified application that displays local hiking trails depending on searched zip code. Once a zip code is searched, five near by trails will be listed. For current area searched trail name, a picture of the trail, length of trail round trip, approximate time to get to trail, difficulty of trail, possible restaurants nearby, driving directions, and general weather info per trail. 
+A simplified application that displays local hiking trails depending on searched zip code. Once a zip code is searched, seven near by trails will be listed. For current area searched trail name, a picture of the trail, length of trail round trip, approximate time to get to trail, difficulty of trail, possible restaurants nearby, driving directions, and general weather info per trail. 
 
 ## Links:
 ```
